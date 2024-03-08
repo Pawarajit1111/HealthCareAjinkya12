@@ -1,0 +1,40 @@
+﻿@model IEnumerable<HealthCare.Models.Employee>
+<h2>Employee Records</h2>
+
+<a asp-action="Create" class="btn btn-primary">Create New</a>
+
+<table class="table table-bordered table-striped" >
+    <thead>
+        <tr>
+            <th>Employee Code</th>
+            <th>Employee Name</th>
+            <th>Date of Birth</th>
+            <th>Gender</th>
+            <th>Department</th>
+            <th>Designation</th>
+            <th>Basic Salary</th>
+            <th>Dearness Allowance</th>
+            <th>Conveyance Allowance</th>
+            <th>House Rent Allowance</th>
+         @*   <th>total salary</th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var employee in Model)
+        {
+            <tr>
+                <td>@employee.EmployeeCode</td>
+                <td>@employee.EmployeeName</td>
+                <td>@employee.DateOfBirth.ToShortDateString()</td>
+                <td>@(employee.Gender ? "Male" : "Female")</td>
+                <td>@employee.Department</td>
+                <td>@employee.Designation</td>
+                <td>@employee.BasicSalary</td>
+                <td>@employee.DearnessAllowance</td>
+                <td>@employee.ConveyanceAllowance</td>
+                <td>@employee.HouseRentAllowance</td>
+               @* <td>@employee.TotalSalary</td>*@
+            </tr>
+        }
+    </tbody>
+</table>
