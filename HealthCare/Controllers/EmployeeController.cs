@@ -19,7 +19,7 @@ namespace HealthCare.Controllers
         {
             using (IDbConnection db = new SqlConnection(_configuration.GetConnectionString("DefaultConnection")))
             {
-                var employees = db.Query<Employee>("SELECT * FROM Employee");
+                var employees = db.Query<Employee>("SELECT * FROM  Employee");
                 return View(employees);
             }
         }
